@@ -1,0 +1,8 @@
+Import file was not found or had errors
+https://github.com/zxh0/vscode-proto3/issues/56
+
+mkdir python
+mkdir java
+
+protoc -I=proto --python_out=python proto/*.proto
+protoc -I=proto --java_out=java proto/*.proto
