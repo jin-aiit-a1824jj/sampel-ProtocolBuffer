@@ -6,3 +6,23 @@ mkdir java
 
 protoc -I=proto --python_out=python proto/*.proto
 protoc -I=proto --java_out=java proto/*.proto
+
+Amazon Linux 2 における Amazon Corretto 11 のインストール手順
+https://docs.aws.amazon.com/ja_jp/corretto/latest/corretto-11-ug/amazon-linux-install.html
+
+sudo yum install java-11-amazon-corretto-headless
+sudo alternatives --config java
+
+https://gradle.org/install/#prerequisites
+wget https://services.gradle.org/distributions/gradle-6.6.1-bin.zip
+$ mkdir /opt/gradle
+$ unzip -d /opt/gradle gradle-6.6.1-bin.zip
+$ ls /opt/gradle/gradle-6.6.1
+$ export PATH=$PATH:/opt/gradle/gradle-6.6.1/bin
+gradle -v
+
+Gradle使い方メモ
+https://qiita.com/opengl-8080/items/4c1aa85b4737bd362d9e
+
+https://mvnrepository.com/artifact/com.google.protobuf/protobuf-java
+
