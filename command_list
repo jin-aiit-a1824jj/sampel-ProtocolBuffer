@@ -29,3 +29,5 @@ https://mvnrepository.com/artifact/com.google.protobuf/protobuf-java
 gradle compileJava
 gradle clean
 gradle run
+
+https://developers.google.com/protocol-buffers/docs/proto3#options

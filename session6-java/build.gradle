@@ -6,7 +6,8 @@ sourceCompatibility = 1.8
 
 //mainClassName = 'simple.proto.SimpleMain'
 //mainClassName = 'simple.proto.EnumMain'
-mainClassName = 'simple.proto.ComplexMain'
+//mainClassName = 'simple.proto.ComplexMain'
+mainClassName = 'simple.proto.OptionMain'
 
 repositories {
     mavenCentral()
