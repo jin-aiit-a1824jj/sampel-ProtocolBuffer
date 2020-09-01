@@ -26,3 +26,6 @@ https://qiita.com/opengl-8080/items/4c1aa85b4737bd362d9e
 
 https://mvnrepository.com/artifact/com.google.protobuf/protobuf-java
 
+gradle compileJava
+gradle clean
+gradle run
