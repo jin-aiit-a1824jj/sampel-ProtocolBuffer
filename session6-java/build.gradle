@@ -8,7 +8,8 @@ sourceCompatibility = 1.8
 //mainClassName = 'simple.proto.EnumMain'
 //mainClassName = 'simple.proto.ComplexMain'
 //mainClassName = 'simple.proto.OptionMain'
-mainClassName = 'simple.proto.ProtoToJSONMain'
+//mainClassName = 'simple.proto.ProtoToJSONMain'
+mainClassName = 'simple.proto.ExerciseMain'
 
 repositories {
     mavenCentral()
