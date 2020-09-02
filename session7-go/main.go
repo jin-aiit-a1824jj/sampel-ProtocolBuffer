@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"log"
 
+	complexpb "./src/complex"
 	enumpb "./src/enum_example"
 	simplepb "./src/simple"
 	"github.com/golang/protobuf/jsonpb"
@@ -16,7 +17,8 @@ func main() {
 	//sm := doSimple()
 	//readAndWriteDemo(sm)
 	//jsonDemo(sm)
-	doEnum()
+	// doEnum()
+	doComplex()
 }
 
 func doSimple() *simplepb.SimpleMessage {
@@ -113,4 +115,25 @@ func doEnum() {
 	ep.DayOfTheWeek = enumpb.DayOfTheWeek_MONDAY
 
 	fmt.Println(&ep)
+}
+
+func doComplex() {
+	cm := complexpb.ComplexMessage{
+		OneDummy: &complexpb.DummyMessage{
+			Id:   1,
+			Name: "First message",
+		},
+		MultipleDummy: []*complexpb.DummyMessage{
+			&complexpb.DummyMessage{
+				Id:   2,
+				Name: "Second message",
+			},
+			&complexpb.DummyMessage{
+				Id:   3,
+				Name: "Thrid message",
+			},
+		},
+	}
+
+	fmt.Println(&cm)
 }
