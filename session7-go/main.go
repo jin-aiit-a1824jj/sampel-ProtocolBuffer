@@ -6,13 +6,15 @@ import (
 	"log"
 
 	simplepb "./src/simple"
-	"google.golang.org/protobuf/proto"
+	"github.com/golang/protobuf/jsonpb"
+	"github.com/golang/protobuf/proto"
 )
 
 func main() {
 	//fmt.Println("hello world")
 	sm := doSimple()
-	readAndWriteDemo(sm)
+	//readAndWriteDemo(sm)
+	jsonDemo(sm)
 }
 
 func doSimple() *simplepb.SimpleMessage {
@@ -72,4 +74,30 @@ func readAndWriteDemo(sm proto.Message) {
 	sm2 := &simplepb.SimpleMessage{}
 	readFromFile("simple.bin", sm2)
 	fmt.Println("Read the content:\n", sm2)
+}
+
+func toJSON(pb proto.Message) string {
+	marshaler := jsonpb.Marshaler{}
+	out, err := marshaler.MarshalToString(pb)
+	if err != nil {
+		log.Fatalln("Can't convert to Json", err)
+		return ""
+	}
+	return out
+}
+
+func fromJSON(in string, pb proto.Message) {
+	err := jsonpb.UnmarshalString(in, pb)
+	if err != nil {
+		log.Fatalln("Couldn't unmarshal the JSON into hte pb struct", err)
+	}
+}
+
+func jsonDemo(sm proto.Message) {
+	smAsString := toJSON(sm)
+	fmt.Println(smAsString)
+
+	sm2 := &simplepb.SimpleMessage{}
+	fromJSON(smAsString, sm2)
+	fmt.Println("Successfully created proto struct:\n", sm2)
 }
