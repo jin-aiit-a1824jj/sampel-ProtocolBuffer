@@ -37,3 +37,9 @@ https://developers.google.com/protocol-buffers/docs/javatutorial
 go run main.go
 
 https://jbrandhorst.com/post/gogoproto/
+
+sudo yum update
+sudo yum install python3
+python3 --version
+
+sudo pip3 install protobuf
