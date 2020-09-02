@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"log"
 
+	enumpb "./src/enum_example"
 	simplepb "./src/simple"
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
@@ -12,9 +13,10 @@ import (
 
 func main() {
 	//fmt.Println("hello world")
-	sm := doSimple()
+	//sm := doSimple()
 	//readAndWriteDemo(sm)
-	jsonDemo(sm)
+	//jsonDemo(sm)
+	doEnum()
 }
 
 func doSimple() *simplepb.SimpleMessage {
@@ -100,4 +102,15 @@ func jsonDemo(sm proto.Message) {
 	sm2 := &simplepb.SimpleMessage{}
 	fromJSON(smAsString, sm2)
 	fmt.Println("Successfully created proto struct:\n", sm2)
+}
+
+func doEnum() {
+	ep := enumpb.EnumMessage{
+		Id:           42,
+		DayOfTheWeek: enumpb.DayOfTheWeek_THURSDAY,
+	}
+
+	ep.DayOfTheWeek = enumpb.DayOfTheWeek_MONDAY
+
+	fmt.Println(&ep)
 }
